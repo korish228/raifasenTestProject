@@ -8,4 +8,10 @@ public interface EmployeeService {
     public List<Employee> getAllEmployees();
 
     Employee save(Employee employee);
+
+    Employee findById(String id);
+
+    boolean isEmployeeExist(Employee employee);
+
+    void delete(Employee employee);
 }

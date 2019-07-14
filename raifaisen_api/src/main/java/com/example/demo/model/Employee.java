@@ -1,8 +1,12 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.Email;
 import java.util.*;
 
 @Entity
@@ -12,32 +16,35 @@ public class Employee {
     private String id;
     private String firstName;
     private String lastName;
+    @Email
+    @Column(unique = true)
+    private String email;
     private Date dateOfBirth;
 
     @ManyToMany
     private Set<Project> projects;
-    private int numOfDepartments;
+    private Integer numProjects;
 
     private Employee() {
         this.id = UUID.randomUUID().toString();
+        this.projects = new HashSet<>();
     }
 
-    public Employee(String firstName, String lastName, Date dateOfBirth) {
+    public Employee(String firstName, String lastName,String email, Date dateOfBirth) {
         this();
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
         this.dateOfBirth = dateOfBirth;
-        this.projects = new HashSet<>();
-        this.numOfDepartments = projects.size();
     }
 
-    public Employee(String id, String firstName, String lastName, Date dateOfBirth, Set<Project> projects, int numOfDepartments) {
+    public Employee(String id, String firstName, String lastName,String email, Date dateOfBirth, Set<Project> projects) {
         this.id = id;
         this.firstName = firstName;
+        this.email = email;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
         this.projects = projects;
-        this.numOfDepartments = numOfDepartments;
     }
 
     public String getId() {
@@ -80,30 +87,20 @@ public class Employee {
         this.projects = projects;
     }
 
-    public int getNumOfDepartments() {
-        return numOfDepartments;
+    public Integer getNumProjects() {
+        return projects.size();
     }
 
-    public void setNumOfDepartments(int numOfDepartments) {
-        this.numOfDepartments = numOfDepartments;
+    public void addProject(Project project) {
+        this.projects.add(project);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return numOfDepartments == employee.numOfDepartments &&
-                Objects.equals(id, employee.id) &&
-                Objects.equals(firstName, employee.firstName) &&
-                Objects.equals(lastName, employee.lastName) &&
-                Objects.equals(dateOfBirth, employee.dateOfBirth) &&
-                Objects.equals(projects, employee.projects);
+    public String getEmail() {
+        return email;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, lastName, dateOfBirth, projects, numOfDepartments);
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -112,9 +109,10 @@ public class Employee {
                 "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", projects=" + projects +
-                ", numOfDepartments=" + numOfDepartments +
+                ", numProjects=" + numProjects +
                 '}';
     }
 }

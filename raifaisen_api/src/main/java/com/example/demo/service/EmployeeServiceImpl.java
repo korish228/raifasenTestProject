@@ -22,4 +22,24 @@ public class EmployeeServiceImpl implements EmployeeService{
     public Employee save(Employee employee) {
         return employeeRepository.save(employee);
     }
+
+    @Override
+    public Employee findById(String id) {
+        return employeeRepository.findById(id).get();
+    }
+
+    @Override
+    public boolean isEmployeeExist(Employee employee) {
+        Employee employee1 = employeeRepository.findEmployeeByEmail(employee.getEmail());
+
+        if (employee1 != null){
+            return true;
+        }
+
+        return false;
+    }
+    @Override
+    public void delete(Employee employee) {
+        this.employeeRepository.deleteById(employee.getId());
+    }
 }

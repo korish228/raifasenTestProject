@@ -25,12 +25,14 @@ class LoadDatabase {
     @Bean
     void initDatabase() {
 
-        Employee employee1 =   this.employeeRepository.save(new Employee("Dmytrro ", "Korish", new Date()));
+        Employee employee1 =   this.employeeRepository.save(new Employee("Dmytrro ", "Korish","korigfshhha@gmail.com", new Date()));
 
-        Employee employee2 =   this.employeeRepository.save(new Employee("Bilbo ", "Baggins", new Date()));
+        Employee employee2 =   this.employeeRepository.save(new Employee("Bilbo ", "Baggins","fgbfgbrgfg@gmail.com",new Date()));
 
-        Employee employee3 =   this.employeeRepository.save(new Employee("Danil ", "Hotsyk", new Date()));
+        Employee employee3 =   this.employeeRepository.save(new Employee("Danil ", "Hotsyk","fgbfgb4tfgbgf@gmail.com", new Date()));
 
-        Project project1 =     this.projectRepository.save(new Project("Developing of new Social Media"));
+        Project project1   =   this.projectRepository.save(new Project("Developing of new Social Media"));
+
+
     }
 }

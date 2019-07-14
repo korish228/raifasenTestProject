@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -11,6 +12,8 @@ public class Project {
 
     @Id
     private String id;
+
+    @Column(unique = true)
     private String projectName;
     private Date created;
 
@@ -30,12 +33,11 @@ public class Project {
         this.numOfEmployees = employees.size();
     }
 
-    public Project(String id, String projectName, Date created, Set<Employee> employees, int numOfEmployees) {
+    public Project(String id, String projectName, Date created, Set<Employee> employees) {
         this.id = id;
         this.projectName = projectName;
         this.created = created;
         this.employees = employees;
-        this.numOfEmployees = numOfEmployees;
     }
 
     public String getId() {
@@ -71,11 +73,15 @@ public class Project {
     }
 
     public int getNumOfEmployees() {
-        return numOfEmployees;
+        return employees.size();
     }
 
     public void setNumOfEmployees(int numOfEmployees) {
         this.numOfEmployees = numOfEmployees;
+    }
+
+    public void addEmployee(Employee employee) {
+        this.employees.add(employee);
     }
 
     @Override
