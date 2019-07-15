@@ -24,4 +24,25 @@ public class ProjectServiceImpl implements ProjectService{
     public Project save(Project project) {
         return projectRepository.save(project);
     }
+
+    @Override
+    public Project findById(String id) {
+        return this.projectRepository.findById(id).get();
+    }
+
+    @Override
+    public boolean isEmployeeExist(Project project) {
+        Project project1 = this.projectRepository.findProjectByProjectName(project.getProjectName());
+
+        if (project1 != null){
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public void delete(Project project) {
+        this.projectRepository.deleteById(project.getId());
+    }
 }

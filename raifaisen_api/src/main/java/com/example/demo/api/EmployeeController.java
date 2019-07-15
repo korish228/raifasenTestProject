@@ -28,7 +28,7 @@ public class EmployeeController {
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping( "/{id}")
     public ResponseEntity<?> getEmployee(@PathVariable("id") String id) {
 
         Employee employee = this.employeeService.findById(id);
@@ -39,9 +39,6 @@ public class EmployeeController {
         return new ResponseEntity<Employee>(employee, HttpStatus.OK);
 
     }
-//
-//    SHOULD FIX
-//
 
     @PostMapping
     public ResponseEntity<?> newEmployee(@RequestBody Employee employee, UriComponentsBuilder ucBuilder){
@@ -53,14 +50,10 @@ public class EmployeeController {
 
         employeeService.save(employee);
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/api/user/{id}").buildAndExpand(employee.getId()).toUri());
+        headers.setLocation(ucBuilder.path("/api/employees/{id}").buildAndExpand(employee.getId()).toUri());
         System.out.println(headers);
         return new ResponseEntity<Employee>(employee, HttpStatus.CREATED);
     }
-
-//
-//
-//
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateEmployee(@PathVariable("id") String id, @RequestBody Employee employee) {
@@ -83,20 +76,20 @@ public class EmployeeController {
     }
 
 
-//    @GetMapping("/{id}")
-//    public ResponseEntity<?> deleteUser(@PathVariable("id") String id) {
-//
-//        Employee employee = this.employeeService.findById(id);
-//
-//        if (!employeeService.isEmployeeExist(employee)) {
-//            return new ResponseEntity<String>("this user doesn`t exist earlier",HttpStatus.CONFLICT);
-//        }
-//
-//        this.employeeService.delete(employee);
-//
-//        return new ResponseEntity<String>("this user doesn`t exist earlier",HttpStatus.CONFLICT);
-//
-//    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteUser(@PathVariable("id") String id) {
+
+        Employee employee = this.employeeService.findById(id);
+
+        if (!employeeService.isEmployeeExist(employee)) {
+            return new ResponseEntity<String>("this user doesn`t exist ",HttpStatus.CONFLICT);
+        }
+
+        this.employeeService.delete(employee);
+
+        return new ResponseEntity<String>("User successfully deleted",HttpStatus.OK);
+
+    }
 
 
 

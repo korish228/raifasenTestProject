@@ -19,18 +19,16 @@ public class Project {
 
     @ManyToMany
     private Set<Employee> employees;
-    private int numOfEmployees;
 
     private Project() {
         this.id = UUID.randomUUID().toString();
+        this.employees = new HashSet<>();
+        this.created = new Date();
     }
 
     public Project(String projectName) {
         this();
-        this.created = new Date();
         this.projectName = projectName;
-        this.employees = new HashSet<>();
-        this.numOfEmployees = employees.size();
     }
 
     public Project(String id, String projectName, Date created, Set<Employee> employees) {
@@ -72,12 +70,8 @@ public class Project {
         this.employees = employees;
     }
 
-    public int getNumOfEmployees() {
+    public Integer getNumOfEmployees() {
         return employees.size();
-    }
-
-    public void setNumOfEmployees(int numOfEmployees) {
-        this.numOfEmployees = numOfEmployees;
     }
 
     public void addEmployee(Employee employee) {
@@ -89,8 +83,7 @@ public class Project {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Project project = (Project) o;
-        return numOfEmployees == project.numOfEmployees &&
-                Objects.equals(id, project.id) &&
+        return Objects.equals(id, project.id) &&
                 Objects.equals(projectName, project.projectName) &&
                 Objects.equals(created, project.created) &&
                 Objects.equals(employees, project.employees);
@@ -98,7 +91,7 @@ public class Project {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, projectName, created, employees, numOfEmployees);
+        return Objects.hash(id, projectName, created, employees);
     }
 
     @Override
@@ -108,7 +101,7 @@ public class Project {
                 ", projectName='" + projectName + '\'' +
                 ", created=" + created +
                 ", employees=" + employees +
-                ", numOfEmployees=" + numOfEmployees +
+                ", numOfEmployees=" + employees.size() +
                 '}';
     }
 }

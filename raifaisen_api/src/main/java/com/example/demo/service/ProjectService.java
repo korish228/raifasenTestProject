@@ -10,4 +10,10 @@ public interface ProjectService {
     public List<Project> getAllProjects();
 
     Project save(Project project);
+
+    Project findById(String id);
+
+    boolean isEmployeeExist(Project project);
+
+    void delete(Project project);
 }

@@ -23,7 +23,6 @@ public class Employee {
 
     @ManyToMany
     private Set<Project> projects;
-    private Integer numProjects;
 
     private Employee() {
         this.id = UUID.randomUUID().toString();
@@ -112,7 +111,7 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", projects=" + projects +
-                ", numProjects=" + numProjects +
+                ", numProjects=" + projects.size() +
                 '}';
     }
 }
