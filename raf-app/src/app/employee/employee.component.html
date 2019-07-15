@@ -1,0 +1,55 @@
+
+
+
+<div class="emplyees">
+  <div class="container">
+
+    <h2 style="width: 100%;">All Employees:</h2>
+
+    <div class="row">
+      <ul class="list">
+        <li *ngFor="let employee of employees"
+            [class.selected]="employees === employees"
+            (click)="onSelect(employee)">
+          <span class="bagage">{{employee.firstName}}   </span>
+
+
+          <span>{{employee.email}}</span>
+        </li>
+      </ul>
+
+      <div *ngIf="selectedEmployees" style="width: 100%">
+
+        <h2>{{selectedEmployees.firstName | uppercase}} Details</h2>
+        <div><span>id: </span>{{selectedEmployees.id}}</div>
+        <div>
+          <label>First Name:
+            <input [(ngModel)]="selectedEmployees.firstName" placeholder="name"/>
+          </label>
+          <label>Last Name:
+            <input [(ngModel)]="selectedEmployees.lastName" placeholder="name"/>
+          </label>
+          <label>Email:
+            <input [(ngModel)]="selectedEmployees.email" placeholder="name"/>
+          </label>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div *ngIf="selectedEmployees">-->
+
+<!--   <h2>{{selectedEmployees.firstName | uppercase}} Details</h2>-->
+<!--   <div><span>id: </span>{{selectedEmployees.id}}</div>-->
+<!--   <div>-->
+<!--     <label>name:-->
+<!--       <input [(ngModel)]="selectedEmployees.firstName" placeholder="name"/>-->
+<!--     </label>-->
+<!--   </div>-->
+
+<!-- </div>-->

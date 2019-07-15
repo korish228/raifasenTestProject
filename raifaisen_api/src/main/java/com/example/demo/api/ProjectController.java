@@ -20,7 +20,7 @@ public class ProjectController {
     private ProjectService projectService;
 
     @GetMapping
-    public ResponseEntity<List<Project>> projects(){
+    public ResponseEntity<List<Project>> getAllProjects(){
         List<Project> projects = projectService.getAllProjects();
         if (projects.isEmpty()){
             return new ResponseEntity(HttpStatus.NO_CONTENT);

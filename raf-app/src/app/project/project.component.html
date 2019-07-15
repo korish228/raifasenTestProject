@@ -1,0 +1,69 @@
+
+<div class="projects">
+  <div class="container">
+    <div class="row">
+      <h2 style="width: 100%;">All Projects:</h2>
+      <ul class="list">
+        <li *ngFor="let project of projects"
+            [class.selected]="project === project"
+            (click)="onSelect(project)">
+<!--          <span class="badge">{{project.id}}</span> {{project.projectName}}-->
+
+          <span class="bagage">{{project.id}}   </span>
+
+
+          <span>{{project.projectName}}</span>
+        </li>
+      </ul>
+
+      <div *ngIf="selectedProject" style="width: 100%">
+
+        <h2>{{selectedProject.projectName | uppercase}} Details</h2>
+        <div><span>id: </span>{{selectedProject.id}}</div>
+        <div>
+          <label>Project Name:
+            <input [(ngModel)]="selectedProject.projectName" placeholder="name"/>
+          </label>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!--<div class="projects">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <ul class="list">-->
+<!--        <li *ngFor="let employee of employees"-->
+<!--            [class.selected]="employees === employees"-->
+<!--            (click)="onSelect(employee)">-->
+<!--          <span class="badge">{{employee.id}}</span> {{employee.firstName}}-->
+<!--        </li>-->
+<!--      </ul>-->
+
+<!--      <div *ngIf="selectedEmployees" style="width: 100%">-->
+
+<!--        <h2>{{selectedEmployees.firstName | uppercase}} Details</h2>-->
+<!--        <div><span>id: </span>{{selectedEmployees.id}}</div>-->
+<!--        <div>-->
+<!--          <label>name:-->
+<!--            <input [(ngModel)]="selectedEmployees.firstName" placeholder="name"/>-->
+<!--          </label>-->
+<!--          <label>name:-->
+<!--            <input [(ngModel)]="selectedEmployees.lastName" placeholder="name"/>-->
+<!--          </label>-->
+<!--          <label>name:-->
+<!--            <input [(ngModel)]="selectedEmployees.email" placeholder="name"/>-->
+<!--          </label>-->
+<!--        </div>-->
+
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
