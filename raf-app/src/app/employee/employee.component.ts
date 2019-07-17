@@ -26,6 +26,14 @@ export class EmployeeComponent implements OnInit {
 
   onSelect(employee: Employee): void {
     this.selectedEmployees = employee;
+    // alert(employee.email);
   }
 
+  deleteEmployee(employee: Employee) {
+    // this.selectedEmployees = employee;
+    // employee
+    alert('delete');
+
+  }
 }
+

@@ -1,29 +1,42 @@
 
 
-.list{
+/*.list{*/
 
-  margin: 20px 0;
+/*  margin: 20px 0;*/
 
+/*}*/
+
+/*.list li{*/
+
+/*  list-style-type: none;*/
+/*  margin: 5px;*/
+/*  background-color: #343a40;*/
+/*  color: #fff;*/
+/*  border-radius: 10px;*/
+/*  cursor: pointer;*/
+
+/*  overflow: hidden;*/
+/*}*/
+/*.list li span{*/
+/*  float: left;*/
+
+/*  padding: 15px 25px;*/
+/*  overflow: hidden;*/
+/*}*/
+
+.selectedItem label{
+  width: 100%;
 }
 
-.list li{
-
-  list-style-type: none;
-  margin: 5px;
-  background-color: #343a40;
-  color: #fff;
+.selectedItem label input{
+  width: 100%;
+  background-color: gainsboro;
+  outline: none;
+  border: none;
   border-radius: 10px;
-  cursor: pointer;
-
-  overflow: hidden;
+  font-size: 18px;
+  padding: 10px 15px;
 }
-.list li span{
-  float: left;
-
-  padding: 15px 25px;
-  overflow: hidden;
-}
-
 
 /*.list li .bagage{*/
 /*  background-color: #e3f2fd;*/

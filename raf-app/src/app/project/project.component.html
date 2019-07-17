@@ -1,69 +1,69 @@
 
-<div class="projects">
-  <div class="container">
-    <div class="row">
-      <h2 style="width: 100%;">All Projects:</h2>
-      <ul class="list">
-        <li *ngFor="let project of projects"
-            [class.selected]="project === project"
-            (click)="onSelect(project)">
-<!--          <span class="badge">{{project.id}}</span> {{project.projectName}}-->
-
-          <span class="bagage">{{project.id}}   </span>
-
-
-          <span>{{project.projectName}}</span>
-        </li>
-      </ul>
-
-      <div *ngIf="selectedProject" style="width: 100%">
-
-        <h2>{{selectedProject.projectName | uppercase}} Details</h2>
-        <div><span>id: </span>{{selectedProject.id}}</div>
-        <div>
-          <label>Project Name:
-            <input [(ngModel)]="selectedProject.projectName" placeholder="name"/>
-          </label>
-
-
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
 <!--<div class="projects">-->
 <!--  <div class="container">-->
 <!--    <div class="row">-->
+<!--      <h2 style="width: 100%;">All Projects:</h2>-->
 <!--      <ul class="list">-->
-<!--        <li *ngFor="let employee of employees"-->
-<!--            [class.selected]="employees === employees"-->
-<!--            (click)="onSelect(employee)">-->
-<!--          <span class="badge">{{employee.id}}</span> {{employee.firstName}}-->
+<!--        <li *ngFor="let project of projects"-->
+<!--            [class.selected]="project === project"-->
+<!--            (click)="onSelect(project)">-->
+<!--&lt;!&ndash;          <span class="badge">{{project.id}}</span> {{project.projectName}}&ndash;&gt;-->
+
+<!--          <span class="bagage">{{project.id}}   </span>-->
+
+
+<!--          <span>{{project.projectName}}</span>-->
 <!--        </li>-->
 <!--      </ul>-->
 
-<!--      <div *ngIf="selectedEmployees" style="width: 100%">-->
+<!--      <div *ngIf="selectedProject" style="width: 100%">-->
 
-<!--        <h2>{{selectedEmployees.firstName | uppercase}} Details</h2>-->
-<!--        <div><span>id: </span>{{selectedEmployees.id}}</div>-->
+<!--        <h2>{{selectedProject.projectName | uppercase}} Details</h2>-->
+<!--        <div><span>id: </span>{{selectedProject.id}}</div>-->
 <!--        <div>-->
-<!--          <label>name:-->
-<!--            <input [(ngModel)]="selectedEmployees.firstName" placeholder="name"/>-->
+<!--          <label>Project Name:-->
+<!--            <input [(ngModel)]="selectedProject.projectName" placeholder="name"/>-->
 <!--          </label>-->
-<!--          <label>name:-->
-<!--            <input [(ngModel)]="selectedEmployees.lastName" placeholder="name"/>-->
-<!--          </label>-->
-<!--          <label>name:-->
-<!--            <input [(ngModel)]="selectedEmployees.email" placeholder="name"/>-->
-<!--          </label>-->
-<!--        </div>-->
+
 
 <!--      </div>-->
-
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
+
+
+
+
+
+<!--&lt;!&ndash;<div class="projects">&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;      <ul class="list">&ndash;&gt;-->
+<!--&lt;!&ndash;        <li *ngFor="let employee of employees"&ndash;&gt;-->
+<!--&lt;!&ndash;            [class.selected]="employees === employees"&ndash;&gt;-->
+<!--&lt;!&ndash;            (click)="onSelect(employee)">&ndash;&gt;-->
+<!--&lt;!&ndash;          <span class="badge">{{employee.id}}</span> {{employee.firstName}}&ndash;&gt;-->
+<!--&lt;!&ndash;        </li>&ndash;&gt;-->
+<!--&lt;!&ndash;      </ul>&ndash;&gt;-->
+
+<!--&lt;!&ndash;      <div *ngIf="selectedEmployees" style="width: 100%">&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <h2>{{selectedEmployees.firstName | uppercase}} Details</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div><span>id: </span>{{selectedEmployees.id}}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div>&ndash;&gt;-->
+<!--&lt;!&ndash;          <label>name:&ndash;&gt;-->
+<!--&lt;!&ndash;            <input [(ngModel)]="selectedEmployees.firstName" placeholder="name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;          </label>&ndash;&gt;-->
+<!--&lt;!&ndash;          <label>name:&ndash;&gt;-->
+<!--&lt;!&ndash;            <input [(ngModel)]="selectedEmployees.lastName" placeholder="name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;          </label>&ndash;&gt;-->
+<!--&lt;!&ndash;          <label>name:&ndash;&gt;-->
+<!--&lt;!&ndash;            <input [(ngModel)]="selectedEmployees.email" placeholder="name"/>&ndash;&gt;-->
+<!--&lt;!&ndash;          </label>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->

@@ -1,40 +1,50 @@
 
-
-
 <div class="emplyees">
   <div class="container">
 
     <h2 style="width: 100%;">All Employees:</h2>
 
+
+
     <div class="row">
-      <ul class="list">
-        <li *ngFor="let employee of employees"
-            [class.selected]="employees === employees"
-            (click)="onSelect(employee)">
-          <span class="bagage">{{employee.firstName}}   </span>
+      <ul class="list-group" style="float: left; width: 100%;">
+        <li *ngFor="let employee of employees" [class.selected]="employees === employees" class="list-group-item" >
+
+          <p><span class="bagage">First Name: {{employee.firstName}}</span></p>
+          <p><span>Last Name:   {{employee.lastName}}</span></p>
+          <p><span>Email:   {{employee.email}}</span></p>
 
 
-          <span>{{employee.email}}</span>
+          <button type="button" class="btn btn-danger" (click)="deleteEmployee(employee)" style="float: right;">Danger</button>
+
+          <button type="button" class="btn btn-info" (click)="onSelect(employee)" style="float: right;">Edit</button>
+
+
+          <div *ngIf="selectedEmployees == employee" style="width: 100%">
+
+            <h2 style="text-align: center;">Edit {{selectedEmployees.firstName | uppercase}}</h2>
+            <div class="selectedItem">
+              <label >First Name:
+                <input [(ngModel)]="selectedEmployees.firstName" placeholder="name"/>
+              </label>
+              <label >Last Name:
+                <input [(ngModel)]="selectedEmployees.lastName" placeholder="name"/>
+              </label>
+              <label >Email:
+                <input  [(ngModel)]="selectedEmployees.email" placeholder="name"/>
+              </label>
+            </div>
+
+
+            <button style="float: right;" type="button" class="btn btn-success">EDIT</button>
+
+          </div>
+
         </li>
       </ul>
 
-      <div *ngIf="selectedEmployees" style="width: 100%">
 
-        <h2>{{selectedEmployees.firstName | uppercase}} Details</h2>
-        <div><span>id: </span>{{selectedEmployees.id}}</div>
-        <div>
-          <label>First Name:
-            <input [(ngModel)]="selectedEmployees.firstName" placeholder="name"/>
-          </label>
-          <label>Last Name:
-            <input [(ngModel)]="selectedEmployees.lastName" placeholder="name"/>
-          </label>
-          <label>Email:
-            <input [(ngModel)]="selectedEmployees.email" placeholder="name"/>
-          </label>
-        </div>
 
-      </div>
 
     </div>
   </div>
